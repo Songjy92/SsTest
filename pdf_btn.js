@@ -1,14 +1,18 @@
-var pdfMake = require('build/pdfmake.min.js');
-var pdfFonts = require('build/vfs_fonts.js');
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
-
 var hw = document.getElementById('pdfmake');
-alert("Hello");
 hw.addEventListener('click', function(){
+    pdfMake.fonts = {
+        yourFontName: {
+          normal: 'https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf',
+          bold: 'https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf',
+          italics: 'https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf',
+          bolditalics: 'https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf'
+        }
+    }
+
     var docDefinition = {
+        
         content: [
-            { text: '공 사 감 리 일 지', fontSize: 20, bold: true, alignment: "center"},
+            { text: '공 사 감 리 일 지',fontSize: 20, bold: true, alignment: "center"},
             { text: 'lightHorizontalLines:', fontSize: 14, bold: true, margin: [0, 20, 0, 8] },
             {
                 style: 'tableExample',
@@ -485,9 +489,9 @@ hw.addEventListener('click', function(){
                 color: 'black'
             }
         },
-        defaultStyle: {
-            // alignment: 'justify'
+        defaultStyle:{
+            font: 'yourFontName'
         }
     };
-    pdfMake.createPdf(docDefinition).open();
+    pdfMake.createPdf(docDefinition).download('test.pdf');
 })
