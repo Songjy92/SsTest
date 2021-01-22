@@ -1,4 +1,4 @@
-var client = require('smartsheet')
+var client = require('smartsheet');
 var smartsheet = client.createClient({accessToken:'lcfgk6pfzl6jpnp2vpta4pkgly'});
 
 var columnMap = {};
@@ -31,4 +31,3 @@ smartsheet.sheets.getSheet(options)
     console.log(numCell.displayValue, conCIPCell.displayValue)
     
 });
-
