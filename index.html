@@ -19,7 +19,7 @@
 
 <script>
     var hw = document.getElementById("pdfmake");
-    hw.addEventListener('click', function(){
+    hw.addEventListener('click', function(event){
         var documentDefinition = {
     //content : pdf의 내용을 정의
     content: [
@@ -101,7 +101,7 @@
     var pdf_name = 'pdf파일 만들기.pdf'; // pdf 만들 파일의 이름
     pdfMake.createPdf(documentDefinition).open();
 
-    })
+    });
     
 </script>
     
