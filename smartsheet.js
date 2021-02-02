@@ -27,7 +27,8 @@ smartsheet.sheets.getSheet(options)
     var outRow = sheet.rows[rowNumber]
     var numCell = getCellByColumnName(outRow,'일련번호')
     var conCIPCell = getCellByColumnName(outRow,'건축감리자')
-
-    console.log(numCell.displayValue, conCIPCell.displayValue)
+    var conCategoryCell = getCellByColumnName(outRow,'건축 중공종')
+    var conInspect = getCellByColumnName(outRow,'건축 감리항목')
+    console.log(conCategoryCell.displayValue, conCIPCell.displayValue, conInspect.displayValue)
     
 });
